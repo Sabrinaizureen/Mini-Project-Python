@@ -54,3 +54,30 @@ labeltittle = Label (topframe, font =('System',40,'bold'), text = "BUS ONLINE TI
 labeltittle.grid(row=0,column=0)
 labeltittle = Label (topframe, font =('arial',10,'bold'), text = "Welcome to Bus Online Ticket!", justify= 'center',width=169,bg = "black", fg = 'white')
 labeltittle.grid(row=1,column=0)
+
+#------------------------INFORMATION------------------------------
+infotittle = Label(leftinfo, text = "INFORMATION ", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=0,column=0)
+infotittle = Label(leftinfo, text = "(Please fill in the correct details) ", font =('Bahnschrift Light',9,'bold'), justify='right', bg='black', fg='white')
+infotittle.grid(row=0,column=2)
+
+infotittle = Label(leftinfo, text = "", font =('Bahnschrift Light',35,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=1,column=0)
+
+name1 = Label (leftinfo, text = "NAME              :", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
+name1.grid(row=2,column=0)
+entryname = Entry (leftinfo, width= 25, font =('Bahnschrift Light',15,'bold'), textvariable=namecus, bd='1', bg='black', fg='white')
+entryname.grid (row = 2, column= 2, sticky='w')
+
+phone1 = Label (leftinfo, text = "P. NUMBER     :", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
+phone1.grid(row=3,column=0)
+entrypnum = Entry (leftinfo, width= 25, font =('arial',16,'bold'), textvariable=pnumbercus, bd='1', bg='black', fg='white')
+entrypnum.grid (row = 3, column= 2, sticky='w')
+
+age = Label (leftinfo, text = "AGE                 :", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
+age.grid(row=4,column=0)
+entryage = Entry (leftinfo, width= 25, font =('arial',16,'bold'), textvariable=agecus, bd='1', bg='black', fg='white')
+entryage.grid (row = 4, column= 2, sticky='w')
+
+infotittle = Label(leftinfo, text = "", font =('Bahnschrift Light',35,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=5,column=0)
