@@ -134,3 +134,33 @@ price.grid(row=7,column=2)
 
 infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), bg='black', fg='dark goldenrod')
 infotittle.grid(row=8,column=0, sticky='w')
+
+#------------------------CALENDER--------------------------------------
+cal = Calendar(rightinfo, selectmode = 'day',year = 2022, month = 6,day = 22)
+cal.grid(padx = 34,pady =40)
+
+#---------------------------LIST OF BUTTON--------------------------------
+clrbtn = Button (btnframe, text = "CLEAR",font =('arial',17,'bold'), width=13, command=clear_command, bg='gold', fg='black')
+clrbtn.grid(row=0, column=0)
+
+addbtn = Button (btnframe, text = "ORDER",font =('arial',17,'bold'),width=13, command = add_command, bg='gold', fg='black')
+addbtn.grid(row=0, column=1)
+
+dropbtn = Button (btnframe, text = "DROP",font =('arial',17,'bold'),width=13, command=drop_command, bg='gold', fg='black')
+dropbtn.grid(row=0, column=2)
+
+updatebtn = Button (btnframe, text = "UPDATE",font =('arial',17,'bold'),width=13, command=update_command, bg='gold', fg='black')
+updatebtn.grid(row=0, column=3)
+
+allbtn = Button (btnframe, text = "SEE ALL",font =('arial',17,'bold'),width= 13, command = display_command, bg='gold', fg='black')
+allbtn.grid(row=0, column=4)
+
+dltbtn = Button (btnframe, text = "DELETE",font =('arial',17,'bold'),width=13, command = delete_display, bg='gold', fg='black')
+dltbtn.grid(row=0, column=5)
+
+datebtn = Button(btnframe, text = "GET DATE",command = grad_date, font =('arial',17,'bold'),width=13, bg='gold', fg='black')
+datebtn.grid(row=0, column=6)
+
+#-----------------------------LIST BOX-------------------------
+infoticket2=Listbox (dspframe,width=60, height=14) 
+infoticket2.pack()
