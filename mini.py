@@ -6,3 +6,8 @@ from turtle import right
 from tkcalendar import Calendar
 import sqlite3
 from PIL import Image, ImageTk
+
+window = Tk()
+window['bg']='black'
+window.geometry("1350x700")
+window.title("Bus Online Booking")
