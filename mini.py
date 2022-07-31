@@ -72,6 +72,21 @@ def display_command():
     con.commit()
     con.close()
 
+#-------------------------------seat selection-------------------------------
+def TraineeInfo(ev):
+    viewinfor = ticket_record.focus()
+    learnerdata = ticket_record.item(viewinfor)
+    row = learnerdata ['values'] 
+    namecus.set(row[0])
+    pnumbercus.set(row[1])
+    agecus.set(row[2])
+    datecus.set(row[3])
+    origincus.set(row[4])
+    destinationcus.set(row[5])
+    seatcus.set(row[6])
+    paxcus.set(row[7])
+    totalcus.set(row[8])
+
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
 topframe.pack(side= TOP)
