@@ -12,6 +12,23 @@ window['bg']='black'
 window.geometry("1350x700")
 window.title("Bus Online Booking")
 
+combostyle=ttk.Style
+window.title('PythonGuides')
+
+#-------------------------------BUTTON FUNCTION------------------------
+def clear_command(): 
+
+    entryname.delete(0,END)
+    entrypnum.delete(0,END)
+    entryage.delete(0,END)
+    infoticket2.delete(0,END)
+    cbodate.set("")
+    cboorigin.set("")
+    cbodestination.set("")
+    cboseat.set("")
+    cbopax.set("")
+    totalcus.set("")
+
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
 topframe.pack(side= TOP)
