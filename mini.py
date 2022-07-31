@@ -191,14 +191,14 @@ labeltittle.grid(row=0,column=0)
 labeltittle = Label (topframe, font =('arial',10,'bold'), text = "Welcome to Bus Online Ticket !", justify= 'center',width=169,bg = "black", fg = 'white')
 labeltittle.grid(row=1,column=0)
 
-#image = Image.open("bus.png")
+image = Image.open("<path/bus.png>")
 
-#resize_image = image.resize((200,150))
-#img = ImageTk.PhotoImage(resize_image)
+resize_image = image.resize((200,150))
+img = ImageTk.PhotoImage(resize_image)
 
-#label1=Label(topframe, bg='', image=img)
-#label1.image = img
-#label1.pack()
+label1=Label(topframe, bg='', image=img)
+label1.image = img
+label1.pack()
 
 #------------------------INFORMATION------------------------------
 infotittle = Label(leftinfo, text = "INFORMATION ", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
