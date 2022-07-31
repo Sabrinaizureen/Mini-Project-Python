@@ -81,3 +81,56 @@ entryage.grid (row = 4, column= 2, sticky='w')
 
 infotittle = Label(leftinfo, text = "", font =('Bahnschrift Light',35,'bold'), bg='black', fg='dark goldenrod')
 infotittle.grid(row=5,column=0)
+
+#-----------------------------DESTINATION----------------------------------------
+infotittle = Label(centerinfo, text ="JOURNEY", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=0,column=0)
+infotittle = Label(centerinfo, text ="(Please select the correct details)", font =('Bahnschrift Light',9,'bold'), justify='right', bg='black', fg='white')
+infotittle.grid(row=0,column=2)
+
+infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=1,column=0)
+
+labeldate1 = Label (centerinfo, text = "  DATE                   :", font =('Bahnschrift Light',17,'bold'), justify='left', bg='black', fg='dark goldenrod')
+labeldate1.grid(row=2,column=0)
+cbodate = ttk.Combobox (centerinfo, font =('Bahnschrift Light',14,'bold'),width=24, state="readonly", textvariable=datecus)
+cbodate ['value']=('','')
+cbodate.current(0)
+cbodate.grid(row=2, column=2)
+
+labelorigin = Label (centerinfo, text = "  ORIGIN                 :", font =('Bahnschrift Light',17,'bold'), justify='left', bg='black', fg='dark goldenrod')
+labelorigin.grid(row=3,column=0)
+cboorigin = ttk.Combobox (centerinfo, font =('arial',14,'bold'),width=24, state="readonly", textvariable=origincus)
+cboorigin ['value']=('','UNICITI ALAM')
+cboorigin.current(0)
+cboorigin.grid (row = 3, column= 2, sticky='w')
+
+labeldestination = Label (centerinfo, text = "  DESTINATION       :", font =('Bahnschrift Light',17,'bold'), justify='left',bg='black', fg='dark goldenrod')
+labeldestination.grid(row=4,column=0)
+cbodestination = ttk.Combobox (centerinfo,width=24, font =('arial',14,'bold'), state="readonly", textvariable = destinationcus)
+cbodestination ['value']=('','PAUH','KANGAR','ARAU','KUALA PERLIS','BINTONG','SIMPANG EMPAT', 'TIMAH TASOH')
+cbodestination.current(0)
+cbodestination.grid (row = 4, column= 2, sticky='w')
+cbodestination.bind('<<ComboboxSelected>>', price_command)
+
+labelseat = Label(centerinfo, text = "   SEAT                   :", font =('Bahnschrift Light',17,'bold'), justify='left',bg='black', fg='dark goldenrod')
+labelseat.grid(row=5,column=0)
+cboseat = ttk.Combobox (centerinfo,width=24, font =('arial',14,'bold'), state="readonly", textvariable = seatcus)
+cboseat ['value']=('','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20')
+cboseat.current(0)
+cboseat.grid (row = 5, column= 2, sticky='w')
+
+labelpax = Label(centerinfo, text = "   PAX                     :", font =('Bahnschrift Light',17,'bold'), justify='left',bg='black', fg='dark goldenrod')
+labelpax.grid(row=6,column=0)
+cbopax = ttk.Combobox (centerinfo,width=24, font =('arial',14,'bold'), state="readonly", textvariable=paxcus)
+cbopax ['value']=('','1 PAX' )
+cbopax.current(0)
+cbopax.grid (row = 6, column= 2, sticky='w')
+
+total = Label (centerinfo, text = "  AMOUNT               :", font =('Bahnschrift Light',17,'bold'),bg='black', fg='dark goldenrod')
+total.grid(row=7,column=0)
+price = Label (centerinfo, font =('arial',16,'bold'), textvariable=totalcus,bg='black', fg='dark goldenrod')
+price.grid(row=7,column=2)
+
+infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), bg='black', fg='dark goldenrod')
+infotittle.grid(row=8,column=0, sticky='w')
