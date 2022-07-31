@@ -111,7 +111,7 @@ cbodestination = ttk.Combobox (centerinfo,width=24, font =('arial',14,'bold'), s
 cbodestination ['value']=('','PAUH','KANGAR','ARAU','KUALA PERLIS','BINTONG','SIMPANG EMPAT', 'TIMAH TASOH')
 cbodestination.current(0)
 cbodestination.grid (row = 4, column= 2, sticky='w')
-cbodestination.bind('<<ComboboxSelected>>', price_command)
+#cbodestination.bind('<<ComboboxSelected>>', price_command)
 
 labelseat = Label(centerinfo, text = "   SEAT                   :", font =('Bahnschrift Light',17,'bold'), justify='left',bg='black', fg='dark goldenrod')
 labelseat.grid(row=5,column=0)
