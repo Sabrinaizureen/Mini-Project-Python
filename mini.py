@@ -97,7 +97,7 @@ def update_command():
     display_command()
     messagebox.showinfo('Data Entry Form','Record Update Successfully')
 
-    #-------------------------------drop-------------------------------
+#-------------------------------drop-------------------------------
 def drop_command():
     con = sqlite3.connect("BusTiketBooking.db")
     cur = con.cursor()
@@ -247,7 +247,7 @@ cbodestination = ttk.Combobox (centerinfo,width=24, font =('arial',14,'bold'), s
 cbodestination ['value']=('','PAUH','KANGAR','ARAU','KUALA PERLIS','BINTONG','SIMPANG EMPAT', 'TIMAH TASOH')
 cbodestination.current(0)
 cbodestination.grid (row = 4, column= 2, sticky='w')
-#cbodestination.bind('<<ComboboxSelected>>', price_command)
+cbodestination.bind('<<ComboboxSelected>>', price_command)
 
 labelseat = Label(centerinfo, text = "   SEAT                   :", font =('Bahnschrift Light',17,'bold'), justify='left',bg='black', fg='dark goldenrod')
 labelseat.grid(row=5,column=0)
@@ -330,7 +330,7 @@ ticket_record.column ("PAX", width=90)
 ticket_record.column ("PRICE", width=125)
 
 ticket_record.pack(fill=BOTH, expand=1)
-#ticket_record.bind("<ButtonRelease-1>",TraineeInfo)
+ticket_record.bind("<ButtonRelease-1>",TraineeInfo)
 #display_command()
 
 '''img1=PhotoImage(file="C:\\Users\\user\\Downloads\\bus.png")
