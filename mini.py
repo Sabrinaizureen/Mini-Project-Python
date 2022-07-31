@@ -164,3 +164,42 @@ datebtn.grid(row=0, column=6)
 #-----------------------------LIST BOX-------------------------
 infoticket2=Listbox (dspframe,width=60, height=14) 
 infoticket2.pack()
+
+#----------------------------TABLE TREEVIEW---------------------
+scroll_y= Scrollbar (ticketinfo, orient = VERTICAL)
+scroll_y.pack(side=RIGHT, fill=Y)
+style=ttk.Style()
+ticket_record = ttk.Treeview(ticketinfo, height=10,columns=("NAME","P.NUMBER","AGE","DATE","ORIGIN","DESTINATION","SEAT","PAX","PRICE"), yscrollcommand=scroll_y.set)
+
+ticket_record.heading ("NAME", text ="NAME")
+ticket_record.heading ("P.NUMBER", text ="P.NUMBER")
+ticket_record.heading ("AGE", text ="AGE")
+ticket_record.heading ("DATE", text ="DATE")
+ticket_record.heading ("ORIGIN", text ="ORIGIN")
+ticket_record.heading ("DESTINATION", text ="DESTINATION")
+ticket_record.heading ("SEAT", text ="SEAT")
+ticket_record.heading ("PAX", text ="PAX")
+ticket_record.heading ("PRICE", text ="PRICE")
+
+ticket_record['show']='headings'
+
+ticket_record.column ("NAME", width=125)
+ticket_record.column ("P.NUMBER", width=125)
+ticket_record.column ("AGE", width=50)
+ticket_record.column ("DATE", width=115)
+ticket_record.column ("ORIGIN", width=125)
+ticket_record.column ("DESTINATION", width=125)
+ticket_record.column ("SEAT", width=50)
+ticket_record.column ("PAX", width=90)
+ticket_record.column ("PRICE", width=125)
+
+ticket_record.pack(fill=BOTH, expand=1)
+#ticket_record.bind("<ButtonRelease-1>",TraineeInfo)
+#display_command()
+
+'''img1=PhotoImage(file="C:\\Users\\user\\Downloads\\bus.png")
+label=ttk.Label(window, image=img1)
+PhotoImage(file="C:\\Users\\user\\Downloads\\bus.png")
+Label.grid(row=0, column=0)'''
+
+window.mainloop()
