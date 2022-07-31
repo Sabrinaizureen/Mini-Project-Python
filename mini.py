@@ -1,3 +1,4 @@
+import imghdr
 from msilib.schema import Font
 from tkinter import*
 from tkinter import Tk, StringVar, ttk
@@ -12,7 +13,6 @@ window['bg']='black'
 window.geometry("1350x700")
 window.title("Bus Online Booking")
 combostyle=ttk.Style
-window.title('PythonGuides')
 
 #-------------------------------BUTTON FUNCTION------------------------
 def clear_command(): 
@@ -190,6 +190,15 @@ labeltittle = Label (topframe, font =('System',40,'bold'), text = "BUS ONLINE TI
 labeltittle.grid(row=0,column=0)
 labeltittle = Label (topframe, font =('arial',10,'bold'), text = "Welcome to Bus Online Ticket !", justify= 'center',width=169,bg = "black", fg = 'white')
 labeltittle.grid(row=1,column=0)
+
+#image = Image.open("bus.png")
+
+#resize_image = image.resize((200,150))
+#img = ImageTk.PhotoImage(resize_image)
+
+#label1=Label(topframe, bg='', image=img)
+#label1.image = img
+#label1.pack()
 
 #------------------------INFORMATION------------------------------
 infotittle = Label(leftinfo, text = "INFORMATION ", font =('Bahnschrift Light',17,'bold'), bg='black', fg='dark goldenrod')
