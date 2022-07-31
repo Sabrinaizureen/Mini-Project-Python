@@ -143,7 +143,11 @@ def price_command(ev):
     else :
         totalcus.set('RM40.00')
 
-
+#-------------------------------calender-------------------------------
+def grad_date():
+    #date.config(text = cal.get_date())
+    cbodate['value']= cal.get_date()
+    
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
 topframe.pack(side= TOP)
