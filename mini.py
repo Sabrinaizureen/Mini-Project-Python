@@ -48,3 +48,9 @@ destinationcus = StringVar()
 seatcus = StringVar()
 paxcus = StringVar()
 totalcus = StringVar()
+
+#------------------------LABEL TITTLE-----------------------------
+labeltittle = Label (topframe, font =('System',40,'bold'), text = "BUS ONLINE TICKET", justify='center', width=41,bg = "black", fg = 'dark goldenrod')
+labeltittle.grid(row=0,column=0)
+labeltittle = Label (topframe, font =('arial',10,'bold'), text = "Welcome to Bus Online Ticket!", justify= 'center',width=169,bg = "black", fg = 'white')
+labeltittle.grid(row=1,column=0)
