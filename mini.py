@@ -107,6 +107,42 @@ def drop_command():
     display_command()
     messagebox.showinfo('Data Entry Form','PASSENGER DROP')
 
+#-------------------------------delete all database-------------------------------
+def delete_display():
+    msgBox=messagebox.askquestion('ExitApplication','ARE YOU SURE TO DELETE PERMANENTLY?',icon='warning')
+
+    if msgBox=='yes':
+        con = sqlite3.connect("BusTiketBooking.db")
+        cur = con.cursor()
+        cur.execute("DELETE FROM customer")
+        for item in ticket_record.get_children():
+            ticket_record.delete(item)
+        con.commit()
+        con.close()
+
+def price_command(ev):
+
+    if destinationcus.get() == 'ARAU':
+        totalcus.set('RM15.00')
+    
+    elif destinationcus.get() == 'PAUH':
+        totalcus.set('RM15.00')
+    
+    elif destinationcus.get() == 'KANGAR':
+        totalcus.set('RM10.00')
+    
+    elif destinationcus.get() == 'BINTONG':
+        totalcus.set('RM12.00')
+    
+    elif destinationcus.get() == 'SIMPANG EMPAT':
+        totalcus.set('RM30.00')
+    
+    elif destinationcus.get() == 'TIMAH TASOH':
+        totalcus.set('RM6.00')
+    
+    else :
+        totalcus.set('RM40.00')
+
 
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
