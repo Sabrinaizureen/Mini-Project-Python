@@ -28,14 +28,14 @@ def clear_command():
     cbopax.set("")
     totalcus.set("")
 
-#-----------------------------connect database-------------------------------
+#-----------------------------CONNECT DATABASE-------------------------------
 con = sqlite3.connect("BusTiketBooking.db")
 cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS customer(name TEXT,pnumber TEXT,age TEXT,date TEXT,origin TEXT,destination TEXT,seat TEXT,pax TEXT,price TEXT )")
 con.commit()
 con.close()
 
-#-------------------------------order-------------------------------
+#-------------------------------ORDER-------------------------------
 def add_command():
 
     if namecus.get() == '' or pnumbercus.get() == '' or agecus.get() == '':
@@ -59,7 +59,7 @@ def add_command():
             #display_command()
             messagebox.showinfo('Data Entry Form','Record Entered Successfully')
 
-#-------------------------------see all-------------------------------
+#-------------------------------SEE ALL-------------------------------
 def display_command():
     con = sqlite3.connect("BusTiketBooking.db")
     cur = con.cursor()
@@ -72,7 +72,7 @@ def display_command():
     con.commit()
     con.close()
 
-#-------------------------------seat selection-------------------------------
+#-------------------------------SEAT SELECTION-------------------------------
 def TraineeInfo(ev):
     viewinfor = ticket_record.focus()
     learnerdata = ticket_record.item(viewinfor)
@@ -87,7 +87,7 @@ def TraineeInfo(ev):
     paxcus.set(row[7])
     totalcus.set(row[8])
 
-#-------------------------------update------------------------------
+#-------------------------------UPDATE------------------------------
 def update_command():
     con = sqlite3.connect("BusTiketBooking.db")
     cur = con.cursor()
@@ -97,7 +97,7 @@ def update_command():
     display_command()
     messagebox.showinfo('Data Entry Form','Record Update Successfully')
 
-#-------------------------------drop-------------------------------
+#-------------------------------DROP-------------------------------
 def drop_command():
     con = sqlite3.connect("BusTiketBooking.db")
     cur = con.cursor()
@@ -107,7 +107,7 @@ def drop_command():
     display_command()
     messagebox.showinfo('Data Entry Form','PASSENGER DROP')
 
-#-------------------------------delete all database-------------------------------
+#-------------------------------DELETE ALL DATABASE-------------------------------
 def delete_display():
     msgBox=messagebox.askquestion('ExitApplication','ARE YOU SURE TO DELETE PERMANENTLY?',icon='warning')
 
@@ -143,7 +143,7 @@ def price_command(ev):
     else :
         totalcus.set('RM40.00')
 
-#-------------------------------calender-------------------------------
+#-------------------------------CALENDAR-------------------------------
 def grad_date():
     #date.config(text = cal.get_date())
     cbodate['value']= cal.get_date()
