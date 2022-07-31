@@ -11,7 +11,6 @@ window = Tk()
 window['bg']='black'
 window.geometry("1350x700")
 window.title("Bus Online Booking")
-
 combostyle=ttk.Style
 window.title('PythonGuides')
 
@@ -28,6 +27,37 @@ def clear_command():
     cboseat.set("")
     cbopax.set("")
     totalcus.set("")
+
+#-----------------------------connect database-------------------------------
+con = sqlite3.connect("BusTiketBooking.db")
+cur = con.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS customer(name TEXT,pnumber TEXT,age TEXT,date TEXT,origin TEXT,destination TEXT,seat TEXT,pax TEXT,price TEXT )")
+con.commit()
+con.close()
+
+#-------------------------------order-------------------------------
+def add_command():
+
+    if namecus.get() == '' or pnumbercus.get() == '' or agecus.get() == '':
+        messagebox.showerror('Return','ENTER CORRECT DETAIL')
+
+    else:
+        con = sqlite3.connect("BusTiketBooking.db")
+        cur = con.cursor()
+        cur.execute("SELECT * FROM customer WHERE seat = ?", (seatcus.get(),))
+        result = cur.fetchall()
+
+        if len (result) == 1:
+            messagebox.showinfo('Data Entry Form','SEAT ALREADY SELECTED, PLEASE ENTER ANOTHER SEAT')
+        else:
+            con = sqlite3.connect("BusTiketBooking.db")
+            cur = con.cursor()
+            cur.execute("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)",(namecus.get(),pnumbercus.get(),agecus.get(),datecus.get(),origincus.get(),destinationcus.get(),seatcus.get(),paxcus.get(),totalcus.get()))
+            con.commit()
+            con.close()
+            infoticket2.insert(END, "PASSENGER'S NAME : " + namecus.get(),"PHONE NUMBER : " + pnumbercus.get(),"AGE : " + agecus.get(),"DATE : " + datecus.get(),"ORIGIN : " + origincus.get(),"DESTINATION : " + destinationcus.get(),"SEAT NUMBER : " + seatcus.get(),"PAX : " + paxcus.get(),"PRICE : " + totalcus.get())
+            #display_command()
+            messagebox.showinfo('Data Entry Form','Record Entered Successfully')
 
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
