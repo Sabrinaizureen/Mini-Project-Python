@@ -37,3 +37,14 @@ dspframe = Frame (ticketframe,width = 300, height=200,bd=6, relief='raise', bg =
 dspframe.pack(side= LEFT)
 ticketinfo = Frame (ticketframe,width = 1050, height=200,bd=6, relief='raise', bg = 'dark goldenrod')
 ticketinfo.pack(side= RIGHT)
+
+#------------------------ALL VARIABLE-------------------------------
+namecus = StringVar()
+pnumbercus = StringVar()
+agecus = StringVar()
+datecus = StringVar()
+origincus = StringVar()
+destinationcus = StringVar()
+seatcus = StringVar()
+paxcus = StringVar()
+totalcus = StringVar()
