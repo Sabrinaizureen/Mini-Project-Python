@@ -48,16 +48,16 @@ def add_command():
         result = cur.fetchall()
 
         if len (result) == 1:
-            messagebox.showinfo('Data Entry Form','SEAT ALREADY SELECTED, PLEASE ENTER ANOTHER SEAT')
+            messagebox.showinfo('Seat selection','SEAT ALREADY SELECTED ! PLEASE ENTER ANOTHER SEAT')
         else:
             con = sqlite3.connect("BusTiketBooking.db")
             cur = con.cursor()
             cur.execute("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)",(namecus.get(),pnumbercus.get(),agecus.get(),datecus.get(),origincus.get(),destinationcus.get(),seatcus.get(),paxcus.get(),totalcus.get()))
             con.commit()
             con.close()
-            infoticket2.insert(END, "PASSENGER'S NAME : " + namecus.get(),"PHONE NUMBER : " + pnumbercus.get(),"AGE : " + agecus.get(),"DATE : " + datecus.get(),"ORIGIN : " + origincus.get(),"DESTINATION : " + destinationcus.get(),"SEAT NUMBER : " + seatcus.get(),"PAX : " + paxcus.get(),"PRICE : " + totalcus.get())
+            infoticket2.insert(END, "", "=======================================",  "PASSENGER'S NAME : " + namecus.get(),"PHONE NUMBER : " + pnumbercus.get(),"AGE : " + agecus.get(),"DATE : " + datecus.get(),"ORIGIN : " + origincus.get(),"DESTINATION : " + destinationcus.get(),"SEAT NUMBER : " + seatcus.get(),"PAX : " + paxcus.get(),"PRICE : " + totalcus.get(), "=======================================")
             #display_command()
-            messagebox.showinfo('Data Entry Form','Record Entered Successfully')
+            messagebox.showinfo('Order','RECORD ENTERED SUCCESSFULLY')
 
 #-------------------------------SEE ALL-------------------------------
 def display_command():
@@ -95,7 +95,7 @@ def update_command():
     con.commit()
     con.close()
     display_command()
-    messagebox.showinfo('Data Entry Form','Record Update Successfully')
+    messagebox.showinfo('Update','RECORD UPDATED SUCCESSFULLY')
 
 #-------------------------------DROP-------------------------------
 def drop_command():
@@ -105,11 +105,11 @@ def drop_command():
     con.commit()
     con.close()
     display_command()
-    messagebox.showinfo('Data Entry Form','PASSENGER DROP')
+    messagebox.showinfo('Drop','PASSENGER DROP')
 
 #-------------------------------DELETE ALL DATABASE-------------------------------
 def delete_display():
-    msgBox=messagebox.askquestion('ExitApplication','ARE YOU SURE TO DELETE PERMANENTLY?',icon='warning')
+    msgBox=messagebox.askquestion('Delete','ARE YOU SURE TO DELETE PERMANENTLY?',icon='warning')
 
     if msgBox=='yes':
         con = sqlite3.connect("BusTiketBooking.db")
@@ -123,25 +123,25 @@ def delete_display():
 def price_command(ev):
 
     if destinationcus.get() == 'ARAU':
-        totalcus.set('RM15.00')
+        totalcus.set('RM 8.00')
     
     elif destinationcus.get() == 'PAUH':
-        totalcus.set('RM15.00')
+        totalcus.set('RM 8.00')
     
     elif destinationcus.get() == 'KANGAR':
-        totalcus.set('RM10.00')
+        totalcus.set('RM 15.00')
     
     elif destinationcus.get() == 'BINTONG':
-        totalcus.set('RM12.00')
+        totalcus.set('RM 10.00')
     
     elif destinationcus.get() == 'SIMPANG EMPAT':
-        totalcus.set('RM30.00')
+        totalcus.set('RM 12.00')
     
     elif destinationcus.get() == 'TIMAH TASOH':
-        totalcus.set('RM6.00')
+        totalcus.set('RM 4.00')
     
     else :
-        totalcus.set('RM40.00')
+        totalcus.set('RM 18.00')
 
 #-------------------------------CALENDAR-------------------------------
 def grad_date():
@@ -265,7 +265,7 @@ cbopax.grid (row = 6, column= 2, sticky='w')
 
 total = Label (centerinfo, text = "AMOUNT               :", font =('Bahnschrift Light',17,'bold'),bg='black', fg='dark goldenrod')
 total.grid(row=7,column=0)
-price = Label (centerinfo, font =('arial',16,'bold'), textvariable=totalcus,bg='black', fg='dark goldenrod')
+price = Label (centerinfo, font =('arial',16,'bold'), textvariable=totalcus,bg='black', fg='white')
 price.grid(row=7,column=2)
 
 infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), bg='black', fg='dark goldenrod')
@@ -298,13 +298,18 @@ datebtn = Button(btnframe, text = "GET DATE",command = grad_date, font =('arial'
 datebtn.grid(row=0, column=6)
 
 #-----------------------------LIST BOX-------------------------
-infoticket2=Listbox (dspframe,width=60, height=14) 
-infoticket2.pack()
+#infoticket2=Listbox (dspframe,width=60, height=14, bg='black', fg='white', justify='center') 
+#infoticket2.grid(row=0, column=0)
+labelinfoticket2= Label (dspframe, text = "TICKET", width='26', font =('Bahnschrift Light',17,'bold'),bg='black', fg='dark goldenrod')
+labelinfoticket2.grid(row=3,column=0)
+infoticket2=Listbox (dspframe,width=60, height=12, bg='black', fg='white', justify='center') 
+infoticket2.grid(row=4, column=0)
 
 #----------------------------TABLE TREEVIEW---------------------
 scroll_y= Scrollbar (ticketinfo, orient = VERTICAL)
 scroll_y.pack(side=RIGHT, fill=Y)
 style=ttk.Style()
+style.configure('Treeview', background='black', foreground='white')
 ticket_record = ttk.Treeview(ticketinfo, height=10,columns=("NAME","P.NUMBER","AGE","DATE","ORIGIN","DESTINATION","SEAT","PAX","PRICE"), yscrollcommand=scroll_y.set)
 
 ticket_record.heading ("NAME", text ="NAME")
@@ -332,10 +337,5 @@ ticket_record.column ("PRICE", width=125)
 ticket_record.pack(fill=BOTH, expand=1)
 ticket_record.bind("<ButtonRelease-1>",TraineeInfo)
 #display_command()
-
-'''img1=PhotoImage(file="C:\\Users\\user\\Downloads\\bus.png")
-label=ttk.Label(window, image=img1)
-PhotoImage(file="C:\\Users\\user\\Downloads\\bus.png")
-Label.grid(row=0, column=0)'''
 
 window.mainloop()
