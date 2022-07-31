@@ -38,7 +38,7 @@ con.close()
 #-------------------------------ORDER-------------------------------
 def add_command():
 
-    if namecus.get() == '' or pnumbercus.get() == '' or agecus.get() == '':
+    if namecus.get() == '' or pnumbercus.get() == '' or agecus.get() == '' or datecus.get() == '':
         messagebox.showerror('Return','ENTER CORRECT DETAIL')
 
     else:
