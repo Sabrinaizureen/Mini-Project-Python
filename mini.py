@@ -272,7 +272,7 @@ infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), 
 infotittle.grid(row=8,column=0, sticky='w')
 
 #------------------------CALENDER--------------------------------------
-cal = Calendar(rightinfo, selectmode = 'day',year = 2022, month = 8,day = 22)
+cal = Calendar(rightinfo, selectmode = 'day',year = 2022, month = 8,day = 1)
 cal.grid(padx = 34,pady =40)
 
 #---------------------------LIST OF BUTTON--------------------------------
@@ -298,8 +298,6 @@ datebtn = Button(btnframe, text = "GET DATE",command = grad_date, font =('arial'
 datebtn.grid(row=0, column=6)
 
 #-----------------------------LIST BOX-------------------------
-#infoticket2=Listbox (dspframe,width=60, height=14, bg='black', fg='white', justify='center') 
-#infoticket2.grid(row=0, column=0)
 labelinfoticket2= Label (dspframe, text = "TICKET", width='26', font =('Ebrima',17,'bold'),bg='black', fg='dark goldenrod')
 labelinfoticket2.grid(row=3,column=0)
 infoticket2=Listbox (dspframe,width=60, height=12, bg='black', fg='white', justify='center') 
