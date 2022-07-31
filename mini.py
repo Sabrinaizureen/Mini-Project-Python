@@ -59,6 +59,19 @@ def add_command():
             #display_command()
             messagebox.showinfo('Data Entry Form','Record Entered Successfully')
 
+#-------------------------------see all-------------------------------
+def display_command():
+    con = sqlite3.connect("BusTiketBooking.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM customer")
+    result = cur.fetchall()
+    if len (result) != 0:
+        ticket_record.delete(*ticket_record.get_children())
+        for row in result:
+            ticket_record.insert('',END,values=row)
+    con.commit()
+    con.close()
+
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
 topframe.pack(side= TOP)
