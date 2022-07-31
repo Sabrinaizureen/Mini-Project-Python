@@ -272,7 +272,7 @@ infotittle = Label(centerinfo, text = "", font =('Bahnschrift Light',5,'bold'), 
 infotittle.grid(row=8,column=0, sticky='w')
 
 #------------------------CALENDER--------------------------------------
-cal = Calendar(rightinfo, selectmode = 'day',year = 2022, month = 6,day = 22)
+cal = Calendar(rightinfo, selectmode = 'day',year = 2022, month = 8,day = 22)
 cal.grid(padx = 34,pady =40)
 
 #---------------------------LIST OF BUTTON--------------------------------
@@ -300,20 +300,22 @@ datebtn.grid(row=0, column=6)
 #-----------------------------LIST BOX-------------------------
 #infoticket2=Listbox (dspframe,width=60, height=14, bg='black', fg='white', justify='center') 
 #infoticket2.grid(row=0, column=0)
-labelinfoticket2= Label (dspframe, text = "TICKET", width='26', font =('Bahnschrift Light',17,'bold'),bg='black', fg='dark goldenrod')
+labelinfoticket2= Label (dspframe, text = "TICKET", width='26', font =('Ebrima',17,'bold'),bg='black', fg='dark goldenrod')
 labelinfoticket2.grid(row=3,column=0)
 infoticket2=Listbox (dspframe,width=60, height=12, bg='black', fg='white', justify='center') 
 infoticket2.grid(row=4, column=0)
 
 #----------------------------TABLE TREEVIEW---------------------
-scroll_y= Scrollbar (ticketinfo, orient = VERTICAL)
+scroll_y= Scrollbar (ticketinfo, orient = VERTICAL, background='black')
 scroll_y.pack(side=RIGHT, fill=Y)
 style=ttk.Style()
-style.configure('Treeview', background='black', foreground='white')
-ticket_record = ttk.Treeview(ticketinfo, height=10,columns=("NAME","P.NUMBER","AGE","DATE","ORIGIN","DESTINATION","SEAT","PAX","PRICE"), yscrollcommand=scroll_y.set)
+style.theme_use('alt')
+style.configure('Treeview', background='black', foreground='white', fieldbackground='black')
+style.map('Treeview', background=[('selected', 'dark goldenrod')])
+ticket_record = ttk.Treeview(ticketinfo, height=10,columns=("NAME","PHONE NUMBER","AGE","DATE","ORIGIN","DESTINATION","SEAT","PAX","PRICE"), yscrollcommand=scroll_y.set)
 
 ticket_record.heading ("NAME", text ="NAME")
-ticket_record.heading ("P.NUMBER", text ="P.NUMBER")
+ticket_record.heading ("PHONE NUMBER", text ="PHONE NUMBER")
 ticket_record.heading ("AGE", text ="AGE")
 ticket_record.heading ("DATE", text ="DATE")
 ticket_record.heading ("ORIGIN", text ="ORIGIN")
@@ -325,7 +327,7 @@ ticket_record.heading ("PRICE", text ="PRICE")
 ticket_record['show']='headings'
 
 ticket_record.column ("NAME", width=125)
-ticket_record.column ("P.NUMBER", width=125)
+ticket_record.column ("PHONE NUMBER", width=125)
 ticket_record.column ("AGE", width=50)
 ticket_record.column ("DATE", width=115)
 ticket_record.column ("ORIGIN", width=125)
