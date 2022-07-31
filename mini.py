@@ -87,6 +87,17 @@ def TraineeInfo(ev):
     paxcus.set(row[7])
     totalcus.set(row[8])
 
+#-------------------------------update------------------------------
+def update_command():
+    con = sqlite3.connect("BusTiketBooking.db")
+    cur = con.cursor()
+    cur.execute("UPDATE customer SET name=?,pnumber=?,age=?,date=?,origin=?,destination=?,pax=?,price=? WHERE seat=?",(namecus.get(),pnumbercus.get(),agecus.get(),datecus.get(),origincus.get(),destinationcus.get(),paxcus.get(),totalcus.get(),seatcus.get()))
+    con.commit()
+    con.close()
+    display_command()
+    messagebox.showinfo('Data Entry Form','Record Update Successfully')
+
+
 #----------------------WINDOW AND FRAME--------------------------
 topframe = Frame (window, width = 1350, height=100, bd=6, relief='raise', bg = 'dark goldenrod')
 topframe.pack(side= TOP)
