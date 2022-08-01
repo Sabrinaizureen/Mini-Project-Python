@@ -55,6 +55,7 @@ def add_command():
             cur.execute("INSERT INTO customer VALUES(?,?,?,?,?,?,?,?,?)",(namecus.get(),pnumbercus.get(),agecus.get(),datecus.get(),origincus.get(),destinationcus.get(),seatcus.get(),paxcus.get(),totalcus.get()))
             con.commit()
             con.close()
+            display_command()
             infoticket2.insert(END, "", "=======================================",  "PASSENGER'S NAME : " + namecus.get(),"PHONE NUMBER : " + pnumbercus.get(),"AGE : " + agecus.get(),"DATE : " + datecus.get(),"ORIGIN : " + origincus.get(),"DESTINATION : " + destinationcus.get(),"SEAT NUMBER : " + seatcus.get(),"PAX : " + paxcus.get(),"PRICE : " + totalcus.get(), "=======================================")
             #display_command()
             messagebox.showinfo('Order','RECORD ENTERED SUCCESSFULLY')
@@ -69,7 +70,6 @@ def display_command():
         ticket_record.delete(*ticket_record.get_children())
         for row in result:
             ticket_record.insert('',END,values=row)
-    display_command()
     con.commit()
     con.close()
 
