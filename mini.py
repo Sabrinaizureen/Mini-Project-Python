@@ -69,6 +69,7 @@ def display_command():
         ticket_record.delete(*ticket_record.get_children())
         for row in result:
             ticket_record.insert('',END,values=row)
+    display_command()
     con.commit()
     con.close()
 
@@ -102,6 +103,8 @@ def drop_command():
     con = sqlite3.connect("BusTiketBooking.db")
     cur = con.cursor()
     cur.execute("DELETE FROM customer WHERE seat=?",(seatcus.get(),))
+    for item in ticket_record.get_children():
+            ticket_record.delete(item)
     con.commit()
     con.close()
     display_command()
